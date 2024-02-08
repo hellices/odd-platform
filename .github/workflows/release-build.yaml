@@ -28,11 +28,7 @@ jobs:
       - name: Check version
         id: get-version
         run: |
-          VERSION="${{ github.event.release.tag_name }}"
-          if [[ -n "${{ github.event.inputs.buildOptions }}" ]]
-            then
-              VERSION="${{ github.event.inputs.buildOptions }}"
-          fi
+          VERSION="0.0.1"
           echo ::set-output name=version::${VERSION}
       - name: Set up JDK 17
         uses: actions/setup-java@v3
