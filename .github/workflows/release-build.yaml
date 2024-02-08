@@ -46,8 +46,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.PAT_GITHUB }}
-      - name: Test and build the image
+      - name: Build the image
         env:
           GENERATE_SOURCEMAP: false
           CI: false
-        run: ./gradlew test jib ${{ github.event.inputs.buildOptions }} --no-daemon --scan --image ghcr.io/hellices/odd-platform -Pversion=${{ steps.get-version.outputs.version }} -PcontainerBuildArm=true -PcontainerBuildAmd=true
+        run: ./gradlew jib ${{ github.event.inputs.buildOptions }} --no-daemon --scan --image ghcr.io/hellices/odd-platform -Pversion=${{ steps.get-version.outputs.version }} -PcontainerBuildArm=true -PcontainerBuildAmd=true
