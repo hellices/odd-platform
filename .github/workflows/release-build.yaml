@@ -16,7 +16,6 @@ on:
 
 jobs:
   release:
-    needs: [run_playwright_tests]
     concurrency: release
     runs-on: ubuntu-latest
     outputs:
