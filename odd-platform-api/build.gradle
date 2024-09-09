@@ -9,7 +9,8 @@ plugins {
 }
 
 group = 'org.opendatadiscovery'
-version = "${version != 'unspecified' ? version : '0.0.1-SNAPSHOT'}"
+// version = "${version != 'unspecified' ? version : '0.0.1-SNAPSHOT'}"
+version = "${version != 'unspecified' && version != null && version != '' ? version : '0.0.1-SNAPSHOT'}"
 
 dependencies {
     if (bundleUI == true) {
