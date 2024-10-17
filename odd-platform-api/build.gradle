@@ -141,11 +141,15 @@ checkstyle {
     maxWarnings = 0
 }
 
-tasks.withType(Checkstyle) {
+tasks.withType(Checkstyle).configureEach {
     reports {
         xml.setRequired(false)
         html.setRequired(false)
     }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs.add("-parameters")
 }
 
 compileJava.dependsOn jooqDockerGenerate
